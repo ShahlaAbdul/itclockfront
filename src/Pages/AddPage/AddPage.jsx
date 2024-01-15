@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Formik, Field, Form,ErrorMessage } from 'formik';
+import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import "./addPage.scss"
 
@@ -16,10 +16,11 @@ function AddPage() {
             method: "POST",
             headers: {
                 "Content-type": "application/json; charset=UTF-8"
-            },  
+            },
             body: JSON.stringify(val),
         }
         )
+        getAll()
     }
 
     function getAll() {
@@ -29,13 +30,12 @@ function AddPage() {
     }
     useEffect(() => {
         getAll()
-     
+
     }, [])
     console.log(addData);
-    function handleDelete(id) {
-        fetch('http://localhost:5100/'+ id, { method: 'DELETE' })
-        .then((res)=>res.json())
-        .then(() => getAll());
+    async function handleDelete(id) {
+        await fetch('http://localhost:5100/' + id, { method: 'DELETE' })
+        await getAll()
     }
 
     return (
@@ -55,7 +55,7 @@ function AddPage() {
                         console.log(values);
                         handleAdd(values)
                         setSubmitting(false);
-                      }, 400);
+                    }, 400);
                 }}
             >
                 <Form>
@@ -73,25 +73,25 @@ function AddPage() {
                 </Form>
             </Formik>
             <div className="table">
-            <table>
-                <tr>
-                    <th>Image</th>
-                    <th>Name</th>
-                    <th>author</th>
-                </tr>
-                {addData.map((x)=>( 
-                <tr>
-                    <td>{x.image}</td>
-                    <td>{x.name}</td>
-                    <td>{x.author}
-                    </td>    
-                    <td onClick={()=>handleDelete(x._id)}>delete</td>
-                </tr>
-                  ))}
-            </table>
-            
+                <table>
+                    <tr>
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>author</th>
+                    </tr>
+                    {addData.map((x) => (
+                        <tr>
+                            <td>{x.image}</td>
+                            <td>{x.name}</td>
+                            <td>{x.author}
+                            </td>
+                            <td onClick={() => handleDelete(x._id)}>delete</td>
+                        </tr>
+                    ))}
+                </table>
+
             </div>
-           
+
         </div>
 
     )
