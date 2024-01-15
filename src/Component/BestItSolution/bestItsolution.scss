@@ -1,0 +1,36 @@
+#best_it_solution{
+    .best_it_solution{
+        background-image: url("https://preview.colorlib.com/theme/itlock/assets/img/hero/h1_hero1.jpg.webp");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100%;
+        height: 80vh;
+        .best_it_solution_content{
+            padding: 0px 80px;
+            width: 60%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            text-align: start;
+            justify-content: center;
+            color: #fff;
+            gap: 20px;
+            p{
+                width: 70%;
+                font-size: 20px;
+            }
+            .find_out{
+                width: 160px;
+                padding: 15px ;
+                font-size: 16px;
+                font-weight: 600;
+                border:  1px solid #fff;
+                background-color: transparent;
+                color: #fff;
+            }
+
+        }
+
+    }
+}

@@ -1,0 +1,38 @@
+
+.letswork{
+    background-color: #003072;
+    width: 100%;
+    color: #fff;
+    padding: 40px 0px;
+    font-family: Rubik, sans-serif;
+    text-align: center;
+
+    .letswork_content{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        gap: 30px;
+        height: 100%;
+        width: 40%;
+        margin: 0 auto;
+        h1{
+            font-size: 38px;
+        }
+        p{
+            font-size: 18px;
+            letter-spacing: 1px;
+        }
+        button{
+            padding: 10px;
+            background-color:  #316ec2;
+            border:none;
+            color: #fff;
+            width: 220px;
+            padding: 20px;
+        }
+
+
+    }
+
+}
